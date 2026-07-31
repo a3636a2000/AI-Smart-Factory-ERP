@@ -1,0 +1,23 @@
+node_modules
+dist
+.DS_Store
+server/public
+vite.config.ts.*
+*.tar.gz
+
+# 환경변수 (비밀키 포함)
+.env
+.env.*
+!.env.example
+
+# Replit 임시 파일
+.local/
+.replit
+replit.nix
+.cache/
+
+# 업로드 파일
+uploads/
+
+# OS
+Thumbs.db
