@@ -1,0 +1,352 @@
+import React from 'react'
+import SmartFactoryWrapper from '../components/SmartFactoryWrapper'
+import {
+  Shield,
+  Calendar,
+  Phone,
+  Mail,
+  MapPin,
+  FileText,
+  User,
+  Lock,
+  Database,
+  Eye,
+  AlertCircle,
+} from 'lucide-react'
+
+const sectionIcon = (Icon: React.ElementType) => (
+  <div className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center shrink-0">
+    <Icon className="w-4 h-4 text-indigo-600" />
+  </div>
+)
+
+const sectionTitle = (text: string) => (
+  <h2 className="text-lg sm:text-xl font-bold text-indigo-900">{text}</h2>
+)
+
+const contentBox = 'bg-[#f8f9fc] rounded-lg p-4 sm:p-6 border border-slate-200'
+
+/**
+ * 개인정보처리방침 페이지
+ */
+const PrivacyPolicy: React.FC = () => {
+  return (
+    <SmartFactoryWrapper>
+      <div className="flex flex-col absolute inset-0 p-2 overflow-auto bg-[#f8f9fc] animate-in slide-in-from-bottom-4 fade-in duration-500 min-h-0">
+        {/* 헤더 */}
+        <div className="relative bg-white border border-indigo-100 rounded-xl px-4 py-3 mb-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0 shadow-sm">
+          <div className="flex items-center gap-3">
+            <Shield className="w-5 h-5 text-indigo-600 shrink-0" />
+            <div>
+              <h2 className="text-indigo-900 font-bold text-lg tracking-tight">개인정보처리방침</h2>
+              <p className="text-slate-500 text-[11px] mt-0.5">디컴소프트 개인정보보호 정책 · 시행일 2025.01.01</p>
+            </div>
+          </div>
+          <div className="hidden sm:flex items-center gap-2 shrink-0">
+            <span className="text-[11px] text-slate-500 bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5">
+              v1.0 · 2025.01.01
+            </span>
+          </div>
+        </div>
+
+        <div className="max-w-5xl mx-auto w-full pb-4">
+          {/* 메인 콘텐츠 */}
+          <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-8 space-y-8 shadow-sm">
+            {/* 1. 개인정보의 처리 목적 */}
+            <section>
+              <div className="flex items-center gap-3 mb-4">
+                {sectionIcon(FileText)}
+                {sectionTitle('1. 개인정보의 처리 목적')}
+              </div>
+              <div className={contentBox}>
+                <p className="text-slate-700 mb-4 text-sm sm:text-base">
+                  디컴소프트('http://decomsoft.com' 이하 'DECOMSOFT')는 다음의 목적을 위하여 개인정보를 처리합니다.
+                  처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는
+                  개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    '회원 가입 및 관리: 회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 서비스 부정이용 방지',
+                    'AI 한글 에디터 서비스 제공: AI 기반 문서 편집 서비스 제공, 기술 지원, 유지보수 서비스',
+                    '계약 및 대금결제: 서비스 계약 체결, 대금 결제, 세금계산서 발행, 계약 이행 관리',
+                    '고객 지원: 민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보, 기술 지원',
+                    '마케팅 및 광고: 신규 서비스 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공, 제품 소개 및 데모 제공',
+                  ].map((text, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 shrink-0" />
+                      <span className="text-slate-700 text-sm">{text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
+            {/* 2. 개인정보의 처리 및 보유 기간 */}
+            <section>
+              <div className="flex items-center gap-3 mb-4">
+                {sectionIcon(Calendar)}
+                {sectionTitle('2. 개인정보의 처리 및 보유 기간')}
+              </div>
+              <div className={contentBox}>
+                <p className="text-slate-700 mb-4 text-sm sm:text-base">
+                  DECOMSOFT는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의받은
+                  개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.
+                </p>
+                <div className="overflow-x-auto">
+                  <table className="w-full border border-slate-200 rounded-lg text-sm overflow-hidden">
+                    <thead className="bg-slate-50">
+                      <tr>
+                        <th className="px-4 py-3 text-left font-semibold text-indigo-900 border-b border-slate-200">처리 목적</th>
+                        <th className="px-4 py-3 text-left font-semibold text-indigo-900 border-b border-slate-200">보유 기간</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        ['회원 가입 및 관리', '회원 탈퇴 시까지'],
+                        ['AI 한글 에디터 서비스 제공', '계약 종료 후 5년'],
+                        ['계약 및 대금결제', '관련 법령에 따라 5년'],
+                        ['고객 지원', '문의 완료 후 3년'],
+                        ['마케팅 및 광고', '동의 철회 시까지'],
+                      ].map(([purpose, period], i) => (
+                        <tr key={i} className="bg-white even:bg-slate-50/50">
+                          <td className="px-4 py-3 text-slate-700 border-b border-slate-200">{purpose}</td>
+                          <td className="px-4 py-3 text-slate-700 border-b border-slate-200">{period}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            {/* 3. 개인정보의 제3자 제공 */}
+            <section>
+              <div className="flex items-center gap-3 mb-4">
+                {sectionIcon(User)}
+                {sectionTitle('3. 개인정보의 제3자 제공')}
+              </div>
+              <div className={contentBox}>
+                <p className="text-slate-700 mb-4 text-sm sm:text-base">
+                  DECOMSOFT는 원칙적으로 정보주체의 개인정보를 수집·이용 목적으로 명시한 범위 내에서 처리하며,
+                  정보주체의 사전 동의 없이는 본래의 목적 범위를 초과하여 처리하거나 제3자에게 제공하지 않습니다.
+                </p>
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="w-5 h-5 text-amber-600 mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-amber-800 font-medium mb-1 text-sm">예외사항</p>
+                      <ul className="text-amber-700 text-sm space-y-1">
+                        <li>• 정보주체로부터 별도의 동의를 받은 경우</li>
+                        <li>• 법률에 특별한 규정이 있거나 법령상 의무를 준수하기 위하여 불가피한 경우</li>
+                        <li>• 정보주체 또는 그 법정대리인이 의사표시를 할 수 없는 상태에 있거나 주소불명 등으로 사전 동의를 받을 수 없는 경우</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 4. 개인정보처리의 위탁 */}
+            <section>
+              <div className="flex items-center gap-3 mb-4">
+                {sectionIcon(Database)}
+                {sectionTitle('4. 개인정보처리의 위탁')}
+              </div>
+              <div className={contentBox}>
+                <p className="text-slate-700 mb-4 text-sm sm:text-base">
+                  DECOMSOFT는 원활한 개인정보 업무처리를 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.
+                </p>
+                <div className="overflow-x-auto">
+                  <table className="w-full border border-slate-200 rounded-lg text-sm overflow-hidden">
+                    <thead className="bg-slate-50">
+                      <tr>
+                        <th className="px-4 py-3 text-left font-semibold text-indigo-900 border-b border-slate-200">위탁받는 자</th>
+                        <th className="px-4 py-3 text-left font-semibold text-indigo-900 border-b border-slate-200">위탁하는 업무의 내용</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        ['KT 클라우드', '클라우드 서비스 및 데이터 저장'],
+                        ['한국정보인증㈜', '전자세금계산서 발행 및 관리'],
+                        ['㈜다날', '결제 서비스 제공'],
+                      ].map(([who, what], i) => (
+                        <tr key={i} className="bg-white even:bg-slate-50/50">
+                          <td className="px-4 py-3 text-slate-700 border-b border-slate-200">{who}</td>
+                          <td className="px-4 py-3 text-slate-700 border-b border-slate-200">{what}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            {/* 5. 정보주체의 권리·의무 */}
+            <section>
+              <div className="flex items-center gap-3 mb-4">
+                {sectionIcon(Eye)}
+                {sectionTitle('5. 정보주체의 권리·의무')}
+              </div>
+              <div className={contentBox}>
+                <p className="text-slate-700 mb-4 text-sm sm:text-base">
+                  정보주체는 DECOMSOFT에 대해 언제든지 다음 각 호의 개인정보 보호 관련 권리를 행사할 수 있습니다.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="bg-white rounded-lg p-4 border border-slate-200">
+                    <h3 className="font-semibold text-indigo-900 mb-2 text-sm">행사 가능한 권리</h3>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• 개인정보 처리현황 통지요구</li>
+                      <li>• 개인정보 열람요구</li>
+                      <li>• 개인정보 정정·삭제요구</li>
+                      <li>• 개인정보 처리정지요구</li>
+                    </ul>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 border border-slate-200">
+                    <h3 className="font-semibold text-indigo-900 mb-2 text-sm">권리 행사 방법</h3>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• 개인정보 보호법 시행규칙 별지 제8호에 따라 작성</li>
+                      <li>• 서면, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있음</li>
+                      <li>• 회사는 지체 없이 조치하겠습니다</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 6. 개인정보의 안전성 확보 조치 */}
+            <section>
+              <div className="flex items-center gap-3 mb-4">
+                {sectionIcon(Lock)}
+                {sectionTitle('6. 개인정보의 안전성 확보 조치')}
+              </div>
+              <div className={contentBox}>
+                <p className="text-slate-700 mb-4 text-sm sm:text-base">
+                  DECOMSOFT는 개인정보보호법 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적/관리적 및 물리적 조치를 하고 있습니다.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="bg-white rounded-lg p-4 border border-slate-200">
+                    <h3 className="font-semibold text-indigo-900 mb-2 text-sm">기술적 조치</h3>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• 개인정보처리시스템 등의 접근권한 관리</li>
+                      <li>• 개인정보의 암호화</li>
+                      <li>• 해킹 등에 대비한 기술적 대책</li>
+                      <li>• 개인정보처리시스템 접속기록의 보관 및 위변조 방지</li>
+                    </ul>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 border border-slate-200">
+                    <h3 className="font-semibold text-indigo-900 mb-2 text-sm">관리적 조치</h3>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• 개인정보 취급직원의 최소화 및 교육</li>
+                      <li>• 개인정보 보호책임자 등의 지정</li>
+                      <li>• 정기적인 자체 감사 실시</li>
+                      <li>• 개인정보 취급규정의 수립 및 시행</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 7. 개인정보 보호책임자 */}
+            <section>
+              <div className="flex items-center gap-3 mb-4">
+                {sectionIcon(Phone)}
+                {sectionTitle('7. 개인정보 보호책임자')}
+              </div>
+              <div className={contentBox}>
+                <p className="text-slate-700 mb-4 text-sm sm:text-base">
+                  DECOMSOFT는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.
+                </p>
+                <div className="bg-white rounded-lg p-4 sm:p-6 border border-slate-200">
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-semibold text-indigo-900 mb-3 text-sm">개인정보 보호책임자</h3>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <User className="w-4 h-4 text-indigo-500" />
+                          <span className="text-sm text-slate-700">성명: 정현민</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Phone className="w-4 h-4 text-indigo-500" />
+                          <span className="text-sm text-slate-700">연락처: 010-9211-8484</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Mail className="w-4 h-4 text-indigo-500" />
+                          <span className="text-sm text-slate-700">이메일: a3636a200@gmail.com</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-indigo-900 mb-3 text-sm">개인정보 보호 담당부서</h3>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4 text-indigo-500" />
+                          <span className="text-sm text-slate-700">부서명: 개발팀</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Phone className="w-4 h-4 text-indigo-500" />
+                          <span className="text-sm text-slate-700">연락처: 010-9211-8484</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Mail className="w-4 h-4 text-indigo-500" />
+                          <span className="text-sm text-slate-700">이메일: a3636a200@gmail.com</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 8. 개인정보 처리방침 변경 */}
+            <section>
+              <div className="flex items-center gap-3 mb-4">
+                {sectionIcon(FileText)}
+                {sectionTitle('8. 개인정보 처리방침 변경')}
+              </div>
+              <div className={contentBox}>
+                <p className="text-slate-700 mb-4 text-sm sm:text-base">
+                  이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.
+                </p>
+                <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-4">
+                  <div className="flex items-start gap-2">
+                    <Calendar className="w-5 h-5 text-indigo-600 mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-indigo-800 font-medium mb-1 text-sm">개인정보처리방침 버전</p>
+                      <p className="text-indigo-700 text-sm">현재 버전: v1.0 (2025.01.01 시행)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          {/* 하단 문의 */}
+          <div className="mt-4">
+            <div className="bg-white rounded-xl border border-slate-200 p-6 text-center shadow-sm">
+              <h3 className="text-lg font-semibold text-indigo-900 mb-3">문의사항</h3>
+              <p className="text-slate-600 mb-4 text-sm">
+                개인정보 처리방침에 대한 문의사항이 있으시면 언제든지 연락주시기 바랍니다.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-indigo-500" />
+                  <span className="text-sm text-slate-700">010-9211-8484</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-indigo-500" />
+                  <span className="text-sm text-slate-700">a3636a200@gmail.com</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-indigo-500" />
+                  <span className="text-sm text-slate-700">대구광역시</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SmartFactoryWrapper>
+  )
+}
+
+export default PrivacyPolicy
