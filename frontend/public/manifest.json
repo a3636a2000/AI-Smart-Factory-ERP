@@ -1,0 +1,24 @@
+{
+  "name": "AI Smart Factory ERP",
+  "short_name": "SF ERP",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "description": "한국품질재단 제조AI 스마트팩토리 실습 포트폴리오 — AI 비전 검사, MES, 데이터분석, PDF·이미지·동영상 편집",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
