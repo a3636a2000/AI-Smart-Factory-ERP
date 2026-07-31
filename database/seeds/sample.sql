@@ -1,0 +1,2 @@
+-- sample.sql — POST /api/seed 로 실행
+-- 품목, 사원, 작업실적, AI 비전 로그 50건 생성
