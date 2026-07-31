@@ -1,4 +1,4 @@
-# ai-smart-factory-erp
+# AI-Smart-Factory-ERP
 
 **한국품질재단 제조AI 스마트팩토리 ERP 실습 포트폴리오**
 
