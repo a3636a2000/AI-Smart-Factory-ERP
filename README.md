@@ -1,6 +1,6 @@
 # AI Smart Factory ERP
 
-> **AI Smart Factory ERP** — 한국품질재단 제조 AI 스마트팩토리 실습용  
+> **AI Smart Factory ERP** — 한국품질재단 제조 AI 스마트팩토리 기업 연계 프로젝트  
 > MES · AI 비전 검사 · 생산 대시보드 · AI 데이터분석 · 문서 편집을 하나의 웹 플랫폼으로 통합한 풀스택 ERP
 
 ---
@@ -21,14 +21,14 @@
 
 ## 📖 소개
 
-AI Smart Factory ERP는 **React 프론트엔드**와 **Express + PostgreSQL 백엔드**로 구성된 제조 AI 스마트팩토리 실습 플랫폼입니다.
+AI Smart Factory ERP는 **React 프론트엔드**와 **Express + PostgreSQL 백엔드**로 구성된 제조 AI 스마트팩토리 **통합 관리 플랫폼**입니다.
 
 - **스마트팩토리**: KPI 대시보드, MES 작업실적, AI 비전 모니터링·검사 설정, 품목·검사 요청 관리
 - **AI 데이터분석**: DB 벡터화 설정, 온톨로지 분석·패턴, 실시간 인사이트 데모
 - **기본 서비스**: PDF 변환, AI 한글 OCR 편집, Gemini 기반 동영상 제작, 실시간 채팅
 - **정책/지원**: FAQ, 개인정보처리방침, 이용약관, 쿠키 정책
 
-한국품질재단(KFQ) AI 스마트팩토리 실습 포트폴리오로 제작되었습니다.
+한국품질재단(KFQ) AI 스마트팩토리 **기업 연계 프로젝트**로 제작되었습니다.
 
 ---
 
@@ -164,35 +164,36 @@ AI Smart Factory ERP는 **React 프론트엔드**와 **Express + PostgreSQL 백�
 
 ## 🏗 아키텍처
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         Browser (Vite)                           │
-│  frontend/src                                                    │
-│    ├── pages/     SmartDashboard, WorkResult, Vision*, ...      │
-│    ├── components Layout, Sidebar, FloatingChat                 │
-│    └── store/     Zustand (vision setup, tabs, defects)         │
-│                              │                                   │
-│                     /api  proxy (dev)                            │
-└──────────────────────────────┼──────────────────────────────────┘
-                               ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                    Express (backend/index.ts)                    │
-│  api/routes/                                                     │
-│    ├── items, workResult, vision, seed                          │
-│    ├── posts, chat, feed, vectorizedTables                      │
-│    └── health                                                    │
-│              │                                                   │
-│              ▼                                                   │
-│         backend/lib/db.ts  ──►  PostgreSQL                       │
-│         database/init.ts   ──►  테이블 자동 생성                    │
-└─────────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────────┐
-│                         AI (browser)                             │
-│  ai/gemini  → PDF 분석 · 동영상 대본/TTS                           │
-│  ImageEditor → Tesseract OCR                                     │
-│  Vision*    → 웹캠 UI + /api/vision 로그                          │
-└─────────────────────────────────────────────────────────────────┘
+```text
++------------------------------------------------------------------+
+|                        Browser (Vite)                            |
+|  frontend/src                                                    |
+|    - pages/      SmartDashboard, WorkResult, Vision*, ...        |
+|    - components  Layout, Sidebar, FloatingChat                   |
+|    - store/      Zustand (vision setup, tabs, defects)            |
+|                                                                  |
+|                     /api  proxy (dev)                            |
++------------------------------+-----------------------------------+
+                               |
+                               v
++------------------------------------------------------------------+
+|                   Express (backend/index.ts)                     |
+|  api/routes/                                                     |
+|    - items, workResult, vision, seed                             |
+|    - posts, chat, feed, vectorizedTables                         |
+|    - health                                                      |
+|                                                                  |
+|         backend/lib/db.ts  --->  PostgreSQL                      |
+|         database/init.ts   --->  Auto schema init                |
++------------------------------------------------------------------+
+                               |
+                               v
++------------------------------------------------------------------+
+|                        AI (browser)                              |
+|  ai/gemini     --->  PDF analysis / video script + TTS           |
+|  ImageEditor   --->  Tesseract OCR                               |
+|  Vision*       --->  Webcam UI + /api/vision logs                |
++------------------------------------------------------------------+
 ```
 
 ---
@@ -367,5 +368,5 @@ Gemini Key를 채팅·이슈에 노출한 경우 [AI Studio](https://aistudio.go
 
 ## 📄 라이선스
 
-이 프로젝트는 학습·포트폴리오 목적의 실습 코드입니다.  
-저작권 © 정현민 · 한국품질재단(KFQ) AI 스마트팩토리 실습
+이 프로젝트는 **한국품질재단(KFQ) 기업 연계** 목적의 스마트팩토리 ERP 코드입니다.  
+저작권 © 정현민 · 한국품질재단(KFQ) AI 스마트팩토리 기업 연계 프로젝트
