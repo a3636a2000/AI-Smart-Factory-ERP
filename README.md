@@ -170,7 +170,7 @@ AI Smart Factory ERP는 **React 프론트엔드**와 **Express + PostgreSQL 백�
 |  frontend/src                                                    |
 |    - pages/      SmartDashboard, WorkResult, Vision*, ...        |
 |    - components  Layout, Sidebar, FloatingChat                   |
-|    - store/      Zustand (vision setup, tabs, defects)            |
+|    - store/      Zustand (vision setup, tabs, defects)           |
 |                                                                  |
 |                     /api  proxy (dev)                            |
 +------------------------------+-----------------------------------+
