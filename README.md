@@ -36,17 +36,25 @@ AI Smart Factory ERP는 **React 프론트엔드**와 **Express + PostgreSQL 백�
 
 > `docs/screenshots/` 폴더의 실행 화면 캡처입니다.
 
-| 메인 포털 | 스마트 대시보드 | AI 비전 | 작업 실적 |
-|:---------:|:---------------:|:-------:|:---------:|
-| ![screen01](docs/screenshots/screen_01.png) | ![screen06](docs/screenshots/screen_06.png) | ![screen03](docs/screenshots/screen_03.png) | ![screen02](docs/screenshots/screen_02.png) |
+| 메인 포털 | 스마트 대시보드 | 작업 실적 등록 | AI 비전 모니터링 |
+|:---------:|:---------------:|:--------------:|:----------------:|
+| ![screen01](docs/screenshots/screen_01.png) | ![screen02](docs/screenshots/screen_02.png) | ![screen03](docs/screenshots/screen_03.png) | ![screen04](docs/screenshots/screen_04.png) |
 
-| PDF 변환 | 이미지 편집 | 동영상 제작 | 채팅 |
-|:--------:|:-----------:|:-----------:|:----:|
-| ![screen07](docs/screenshots/screen_07.png) | ![screen08](docs/screenshots/screen_08.png) | ![screen09](docs/screenshots/screen_09.png) | ![screen10](docs/screenshots/screen_10.png) |
+| AI 비전 검사 설정 | 검사 요청 등록 | 품목등록 | 데이터베이스 설정 |
+|:-----------------:|:--------------:|:--------:|:-----------------:|
+| ![screen05](docs/screenshots/screen_05.png) | ![screen06](docs/screenshots/screen_06.png) | ![screen07](docs/screenshots/screen_07.png) | ![screen08](docs/screenshots/screen_08.png) |
 
-| 아키텍처 | ERD | 업무 흐름 |
-|:--------:|:---:|:---------:|
-| ![architecture](docs/architecture.png) | ![erd](docs/erd.png) | ![workflow](docs/workflow.png) |
+| AI 온톨로지 분석 | AI 온톨로지 관리 | 실시간 인사이트 | PDF 변환 |
+|:----------------:|:----------------:|:---------------:|:--------:|
+| ![screen09](docs/screenshots/screen_09.png) | ![screen10](docs/screenshots/screen_10.png) | ![screen11](docs/screenshots/screen_11.png) | ![screen12](docs/screenshots/screen_12.png) |
+
+| 이미지 편집 | 동영상 제작 | 채팅 | FAQ |
+|:-----------:|:-----------:|:----:|:---:|
+| ![screen13](docs/screenshots/screen_13.png) | ![screen14](docs/screenshots/screen_14.png) | ![screen15](docs/screenshots/screen_15.png) | ![screen16](docs/screenshots/screen_16.png) |
+
+| 개인정보 | 이용약관 | 쿠키정책 |
+|:--------:|:--------:|:--------:|
+| ![screen17](docs/screenshots/screen_17.png) | ![screen18](docs/screenshots/screen_18.png) | ![screen19](docs/screenshots/screen_19.png) |
 
 ---
 
@@ -166,33 +174,33 @@ AI Smart Factory ERP는 **React 프론트엔드**와 **Express + PostgreSQL 백�
 
 ```text
 +------------------------------------------------------------------+
-|                        Browser (Vite)                            |
-|  frontend/src                                                    |
-|    - pages/      SmartDashboard, WorkResult, Vision*, ...        |
-|    - components  Layout, Sidebar, FloatingChat                   |
-|    - store/      Zustand (vision setup, tabs, defects)           |
+|                          Browser (Vite)                          |
+| frontend/src                                                     |
+|   - pages/      SmartDashboard, WorkResult, Vision*, ...         |
+|   - components  Layout, Sidebar, FloatingChat                    |
+|   - store/      Zustand (vision setup, tabs, defects)            |
 |                                                                  |
-|                     /api  proxy (dev)                            |
-+------------------------------+-----------------------------------+
-                               |
-                               v
+|                         /api  proxy (dev)                        |
 +------------------------------------------------------------------+
-|                   Express (backend/index.ts)                     |
-|  api/routes/                                                     |
-|    - items, workResult, vision, seed                             |
-|    - posts, chat, feed, vectorizedTables                         |
-|    - health                                                      |
+                                 |
+                                 v
++------------------------------------------------------------------+
+|                    Express (backend/index.ts)                    |
+| api/routes/                                                      |
+|   - items, workResult, vision, seed                              |
+|   - posts, chat, feed, vectorizedTables                          |
+|   - health                                                       |
 |                                                                  |
-|         backend/lib/db.ts  --->  PostgreSQL                      |
-|         database/init.ts   --->  Auto schema init                |
+|        backend/lib/db.ts  --->  PostgreSQL                       |
+|        database/init.ts   --->  Auto schema init                 |
 +------------------------------------------------------------------+
-                               |
-                               v
+                                 |
+                                 v
 +------------------------------------------------------------------+
-|                        AI (browser)                              |
-|  ai/gemini     --->  PDF analysis / video script + TTS           |
-|  ImageEditor   --->  Tesseract OCR                               |
-|  Vision*       --->  Webcam UI + /api/vision logs                |
+|                           AI (browser)                           |
+| ai/gemini     --->  PDF analysis / video script + TTS            |
+| ImageEditor   --->  Tesseract OCR                                |
+| Vision*       --->  Webcam UI + /api/vision logs                 |
 +------------------------------------------------------------------+
 ```
 
@@ -209,12 +217,9 @@ ai-smart-factory-erp/
 ├── .env.example                        # 환경변수 예시
 │
 ├── docs/
-│   ├── architecture.png
-│   ├── erd.png
-│   ├── workflow.png
 │   ├── deploy.md
 │   ├── presentation/                   # PPT, 포스터
-│   ├── screenshots/                    # 실행 화면
+│   ├── screenshots/                    # 실행 화면 (screen_01~19)
 │   └── introduction_video/             # 소개 자막
 │
 ├── frontend/                           # React + Vite SPA

@@ -13,8 +13,8 @@ interface LayoutProps {
   const MENU_LABELS: Record<string, string> = {
     '/': '메인 포털',
     '/pdf-converter': 'PDF 변환',
-    '/image-editor': '편집',
-    '/video-maker': '동영상',
+    '/image-editor': '이미지 편집',
+    '/video-maker': '동영상 제작',
     '/chat': '채팅',
     '/sf-dashboard': '스마트 대시보드',
     '/sf-production': '작업 실적 등록',
